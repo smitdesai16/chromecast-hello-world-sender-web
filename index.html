@@ -20,7 +20,7 @@
                         console.log(event);
                     });
                     context.addEventListener(window.cast.framework.CastContextEventType.CAST_STATE_CHANGED, function (event) {
-                        console.log("CAST_STATE_CHANGED:" + event.sessionState);
+                        console.log("CAST_STATE_CHANGED:" + event.castState);
                         console.log(event);
                     });
                 }, 1000);
