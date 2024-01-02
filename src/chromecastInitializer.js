@@ -1,7 +1,7 @@
 window['__onGCastApiAvailable'] = function (isAvailable) {
     if (isAvailable) {
         window.cast.framework.CastContext.getInstance().setOptions({
-            receiverApplicationId: "655CDBBC",
+            receiverApplicationId: "3458D718",
             autoJoinPolicy: window.chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
         });
 
