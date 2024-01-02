@@ -1,5 +1,6 @@
 {
   "HelloWorld": {
-    "Title": "Hello World"
+    "Title": "Hello World",
+    "Send":  "Send"
   }
 }

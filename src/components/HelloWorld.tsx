@@ -1,12 +1,16 @@
-import { Title1 } from "@fluentui/react-components";
+import { Button, Input, Title1, useId } from "@fluentui/react-components";
 import { useTranslation } from "react-i18next";
 
 const HelloWorld = () => {
     const { t } = useTranslation();
+    const inputTextId = useId("inputTextId");
 
     return (
         <>
-            <Title1 as="h1">{t("HelloWorld.Title")}</Title1>
+            <div style={{ display: "flex" }}>
+                <Input appearance="underline" id={inputTextId} style={{ flexGrow: 1 }} />
+                <Button appearance="primary">{t("HelloWorld.Send")}</Button>
+            </div>
         </>
     );
 };
