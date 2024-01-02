@@ -1,6 +1,5 @@
 import { Button, Input, useId } from "@fluentui/react-components";
 import { useTranslation } from "react-i18next";
-import { castSession } from "../chromecastSessionProvider";
 import { useState } from "react";
 
 const HelloWorld = () => {
@@ -9,12 +8,15 @@ const HelloWorld = () => {
     const inputTextId = useId("inputTextId");
 
     const onSendClick = () => {
+        const castSession = globalThis.cast.framework.CastContext.getInstance().getCurrentSession();
         if (castSession) {
             castSession.sendMessage('urn:x-cast:com.example.castdata', {
                 type: "message",
                 text: text
             });
             setText("");
+        } else {
+            console.error("CastSession is null");
         }
     };
 
