@@ -12,7 +12,6 @@ import { languageConvertToApi } from "./converter/languageConverter";
 import { updateLanguageAction, updateLanguageDirAction, updateThemeAction } from "./store/userReducer";
 import { Language } from "./models/language";
 import { LanguageDir } from "./models/languageDir";
-import "./chromecastInitializer";
 
 interface IProps {
 	children: React.ReactNode;

@@ -5,6 +5,23 @@
     <!--<link rel="icon" type="image/svg+xml" href="/vite.svg" />-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chromecast Hello World</title>
+    <script>
+        window.__onGCastApiAvailable = function (isAvailable) {
+            if (isAvailable) {
+                setTimeout(() => {
+                    window.cast.framework.CastContext.getInstance().setOptions({
+                        receiverApplicationId: "3458D718",
+                        autoJoinPolicy: window.chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
+                    });
+
+                    var context = window.cast.framework.CastContext.getInstance();
+                    context.addEventListener(window.cast.framework.CastContextEventType.SESSION_STATE_CHANGED, function (event) {
+                        console.log(event.sessionState);
+                    });
+                }, 1000);
+            }
+        };
+    </script>
     <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
 </head>
 <body>
