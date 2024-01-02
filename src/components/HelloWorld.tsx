@@ -10,9 +10,8 @@ const HelloWorld = () => {
     const onSendClick = () => {
         const castSession = globalThis.cast.framework.CastContext.getInstance().getCurrentSession();
         if (castSession) {
-            castSession.sendMessage('urn:x-cast:com.example.castdata', {
-                type: "message",
-                text: text
+            castSession.sendMessage('urn:x-cast:io.smitdesai16.github.message', {
+                message: text
             });
             setText("");
         } else {
