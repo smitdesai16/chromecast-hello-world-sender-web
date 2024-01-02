@@ -1,0 +1,1 @@
+import{j as e}from"./secondPulse-KPbrB2eh.js";import{c as o,U as t,P as s}from"./userReducer-fldY_D5X.js";import"./index-wYFIeuyV.js";import"./firstPulse-CgnjhaYa.js";const u=o({reducer:{user:t}});function c({children:r}){return e.jsx(s,{store:u,children:r})}export{c as default};
