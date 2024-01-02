@@ -14,6 +14,9 @@ export class I18nAccessor {
                 interpolation: {
                     escapeValue: false,
                 },
+                backend: {
+                    loadPath: '/chromecast-hello-world-sender-web/locales/{{lng}}/translation.json',
+                }
             });
     }
 }
