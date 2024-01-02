@@ -14,7 +14,7 @@
                         autoJoinPolicy: window.chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
                     });
 
-                    var context = window.cast.framework.CastContext.getInstance();
+                    let context = window.cast.framework.CastContext.getInstance();
                     context.addEventListener(window.cast.framework.CastContextEventType.SESSION_STATE_CHANGED, function (event) {
                         console.log("SESSION_STATE_CHANGED: " + event.sessionState);
                         console.log(event);
@@ -30,8 +30,6 @@
     <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
 </head>
 <body>
-    <google-cast-launcher id="castbutton"></google-cast-launcher>
-    <br />
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
 </body>

@@ -24,11 +24,19 @@ const HelloWorld = () => {
         setText(value);
     }
 
+    const googleCastLauncherTag = "<google-cast-launcher id=\"castbutton\"></google-cast-launcher>";
+    const getGoogleCastLauncher = () => {
+        return (
+            <div style={{ width: "32px" }} className="content" dangerouslySetInnerHTML={{ __html: googleCastLauncherTag }}></div>
+        )
+    }
+
     return (
         <>
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", gap: "8px" }}>
                 <Input appearance="underline" id={inputTextId} style={{ flexGrow: 1 }} value={text} onChange={onTextChange} />
                 <Button appearance="primary" onClick={onSendClick}>{t("HelloWorld.Send")}</Button>
+                {getGoogleCastLauncher()}
             </div>
         </>
     );
