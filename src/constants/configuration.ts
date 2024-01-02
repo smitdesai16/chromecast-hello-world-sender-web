@@ -1,3 +1,3 @@
 export const Configuration = {
-	name: "react-boilerplate",
+	name: "chromecast-hello-world-sender-web",
 };
