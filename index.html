@@ -16,7 +16,12 @@
 
                     var context = window.cast.framework.CastContext.getInstance();
                     context.addEventListener(window.cast.framework.CastContextEventType.SESSION_STATE_CHANGED, function (event) {
-                        console.log(event.sessionState);
+                        console.log("SESSION_STATE_CHANGED: " + event.sessionState);
+                        console.log(event);
+                    });
+                    context.addEventListener(window.cast.framework.CastContextEventType.CAST_STATE_CHANGED, function (event) {
+                        console.log("CAST_STATE_CHANGED:" + event.sessionState);
+                        console.log(event);
                     });
                 }, 1000);
             }
