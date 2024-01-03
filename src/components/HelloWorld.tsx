@@ -19,16 +19,6 @@ const HelloWorld = () => {
         }
     };
 
-    const onStopCastingClickTrue = () => {
-        const castContext = globalThis.cast.framework.CastContext.getInstance();
-        castContext.endCurrentSession(true);
-    }
-
-    const onStopCastingClickFalse = () => {
-        const castContext = globalThis.cast.framework.CastContext.getInstance();
-        castContext.endCurrentSession(false);
-    }
-
     const onTextChange = (event: { target: { value: string; }; }) => {
         const value = event.target.value;
         setText(value);
@@ -47,8 +37,30 @@ const HelloWorld = () => {
                 <Input appearance="underline" id={inputTextId} style={{ flexGrow: 1 }} value={text} onChange={onTextChange} />
                 <Button appearance="primary" onClick={onSendClick}>{t("HelloWorld.Send")}</Button>
                 {getGoogleCastLauncher()}
-                <Button appearance="secondary" onClick={onStopCastingClickTrue}>Stop with True</Button>
-                <Button appearance="secondary" onClick={onStopCastingClickFalse}>Stop with False</Button>
+                <Button appearance="secondary" onClick={() => {
+                    const castContext = globalThis.cast.framework.CastContext.getInstance();
+                    castContext.endCurrentSession(true);
+                }}>Stop with True</Button>
+                <Button appearance="secondary" onClick={() => {
+                    const castContext = globalThis.cast.framework.CastContext.getInstance();
+                    castContext.endCurrentSession(false);
+                }}>Stop with False</Button>
+                <Button appearance="secondary" onClick={() => {
+                    const castContext = globalThis.cast.framework.CastContext.getInstance();
+                    castContext.requestSession();
+                }}>Request Session</Button>
+                <Button appearance="secondary" onClick={() => {
+                    const castContext = globalThis.cast.framework.CastContext.getInstance();
+                    console.log(castContext.getSessionState());
+                }}>Get Session State</Button>
+                <Button appearance="secondary" onClick={() => {
+                    const castContext = globalThis.cast.framework.CastContext.getInstance();
+                    console.log(castContext.getCurrentSession());
+                }}>Get Current Session</Button>
+                <Button appearance="secondary" onClick={() => {
+                    const castContext = globalThis.cast.framework.CastContext.getInstance();
+                    console.log(castContext.getCastState());
+                }}>Get Cast State</Button>
             </div>
         </>
     );
