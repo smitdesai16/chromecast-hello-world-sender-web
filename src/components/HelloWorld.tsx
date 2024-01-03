@@ -19,6 +19,16 @@ const HelloWorld = () => {
         }
     };
 
+    const onStopCastingClickTrue = () => {
+        const castSession = globalThis.cast.framework.CastContext.getInstance().getCurrentSession();
+        castSession.endSession(true);
+    }
+
+    const onStopCastingClickFalse = () => {
+        const castSession = globalThis.cast.framework.CastContext.getInstance().getCurrentSession();
+        castSession.endSession(false);
+    }
+
     const onTextChange = (event: { target: { value: string; }; }) => {
         const value = event.target.value;
         setText(value);
@@ -37,6 +47,8 @@ const HelloWorld = () => {
                 <Input appearance="underline" id={inputTextId} style={{ flexGrow: 1 }} value={text} onChange={onTextChange} />
                 <Button appearance="primary" onClick={onSendClick}>{t("HelloWorld.Send")}</Button>
                 {getGoogleCastLauncher()}
+                <Button appearance="secondary" onClick={onStopCastingClickTrue}>Stop with True</Button>
+                <Button appearance="secondary" onClick={onStopCastingClickFalse}>Stop with False</Button>
             </div>
         </>
     );
