@@ -20,13 +20,13 @@ const HelloWorld = () => {
     };
 
     const onStopCastingClickTrue = () => {
-        const castSession = globalThis.cast.framework.CastContext.getInstance().getCurrentSession();
-        castSession.endSession(true);
+        const castContext = globalThis.cast.framework.CastContext.getInstance();
+        castContext.endCurrentSession(true);
     }
 
     const onStopCastingClickFalse = () => {
-        const castSession = globalThis.cast.framework.CastContext.getInstance().getCurrentSession();
-        castSession.endSession(false);
+        const castContext = globalThis.cast.framework.CastContext.getInstance();
+        castContext.endCurrentSession(false);
     }
 
     const onTextChange = (event: { target: { value: string; }; }) => {
