@@ -1,10 +1,10 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-export interface ApplicationDetailState {
+export interface HealthCheckState {
 	lastReceived: string;
 }
 
-const initialState: ApplicationDetailState = {
+const initialState: HealthCheckState = {
 	lastReceived: "",
 };
 
@@ -12,7 +12,7 @@ export const messageSlice = createSlice({
 	name: "applicationDetail",
 	initialState,
 	reducers: {
-		updateLastReceivedAction: (state, action: PayloadAction<ApplicationDetailState["lastReceived"]>) => {
+		updateLastReceivedAction: (state, action: PayloadAction<HealthCheckState["lastReceived"]>) => {
 			state.lastReceived = action.payload;
 		},
 	},
