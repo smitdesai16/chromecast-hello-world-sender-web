@@ -1,0 +1,7 @@
+import{_ as o}from"./index-dHAyYASs.js";import{b as l,j as r,r as e}from"./secondPulse-xnjOLtVL.js";import{E as a}from"./react-error-boundary.esm-qnMrYdMG.js";import"./firstPulse-koEALQRv.js";const t=l.lazy(()=>o(()=>import("./ApplicationDetails-ES6SIWOA.js"),__vite__mapDeps([0,1,2,3,4,5,6,7]))),i=l.lazy(()=>o(()=>import("./Actions-w0fVxYRl.js"),__vite__mapDeps([8,1,2,3,4,6,9,7]))),x=()=>{const s=()=>r.jsx("p",{children:"Error"});return r.jsx(a,{fallbackRender:s,children:r.jsxs("div",{style:{display:"flex",width:"100%",wordBreak:"break-all"},children:[r.jsx(e.Suspense,{fallback:r.jsx("p",{children:"Loading Hello World"}),children:r.jsx(t,{})}),r.jsx(e.Suspense,{fallback:r.jsx("p",{children:"Loading Hello World"}),children:r.jsx(i,{})})]})})};export{x as default};
+function __vite__mapDeps(indexes) {
+  if (!__vite__mapDeps.viteFileDeps) {
+    __vite__mapDeps.viteFileDeps = ["assets/ApplicationDetails-ES6SIWOA.js","assets/secondPulse-xnjOLtVL.js","assets/index-dHAyYASs.js","assets/index-JfQiRzvL.css","assets/firstPulse-koEALQRv.js","assets/react-redux-OMeufEKY.js","assets/useTheme-VfHKhORQ.js","assets/Title1-vjYganGK.js","assets/Actions-w0fVxYRl.js","assets/CustomStyleHooksContext-qgiYJW2b.js"]
+  }
+  return indexes.map((i) => __vite__mapDeps.viteFileDeps[i])
+}

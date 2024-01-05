@@ -6,20 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chromecast Hello World</title>
     <script>
-        window.__onGCastApiAvailable = function (isAvailable) {
+        window["__onGCastApiAvailable"] = function (isAvailable) {
             if (isAvailable) {
                 setTimeout(() => {
-                    window.cast.framework.CastContext.getInstance().setOptions({
+                    window["cast"].framework.CastContext.getInstance().setOptions({
                         receiverApplicationId: "3458D718",
-                        autoJoinPolicy: window.chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED
+                        autoJoinPolicy: window["chrome"].cast.AutoJoinPolicy.PAGE_SCOPED,
+                        resumeSavedSession: true
                     });
 
-                    let context = window.cast.framework.CastContext.getInstance();
-                    context.addEventListener(window.cast.framework.CastContextEventType.SESSION_STATE_CHANGED, function (event) {
+                    const castContext = window["cast"].framework.CastContext.getInstance();
+
+                    castContext.addEventListener(window["cast"].framework.CastContextEventType.SESSION_STATE_CHANGED, function (event) {
                         console.log("SESSION_STATE_CHANGED: " + event.sessionState);
                         console.log(event);
                     });
-                    context.addEventListener(window.cast.framework.CastContextEventType.CAST_STATE_CHANGED, function (event) {
+                    castContext.addEventListener(window["cast"].framework.CastContextEventType.CAST_STATE_CHANGED, function (event) {
                         console.log("CAST_STATE_CHANGED:" + event.castState);
                         console.log(event);
                     });
@@ -28,7 +30,7 @@
         };
     </script>
     <script type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
-  <script type="module" crossorigin src="https://smitdesai16.github.io/chromecast-hello-world-sender-web/assets/index-GQqGOqdC.js"></script>
+  <script type="module" crossorigin src="https://smitdesai16.github.io/chromecast-hello-world-sender-web/assets/index-dHAyYASs.js"></script>
   <link rel="stylesheet" crossorigin href="https://smitdesai16.github.io/chromecast-hello-world-sender-web/assets/index-JfQiRzvL.css">
 </head>
 <body>
