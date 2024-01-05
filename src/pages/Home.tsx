@@ -1,6 +1,8 @@
-import React, { Suspense } from "react";
+import React from "react";
+import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-const HelloWorld = React.lazy(() => import("../components/HelloWorld"));
+const ApplicationDetail = React.lazy(() => import("../components/ApplicationDetails"));
+const Actions = React.lazy(() => import("../components/Actions"));
 
 const Home = () => {
     const fallbackRender = () => {
@@ -9,9 +11,14 @@ const Home = () => {
 
 	return (
 		<ErrorBoundary fallbackRender={fallbackRender}>
-			<Suspense fallback={<p>Loading Hello World</p>}>
-				<HelloWorld />
-			</Suspense>
+			<div style={{ display: "flex", width: "100%", wordBreak: "break-all" }}>
+				<Suspense fallback={<p>Loading Hello World</p>}>
+					<ApplicationDetail />
+				</Suspense>
+				<Suspense fallback={<p>Loading Hello World</p>}>
+					<Actions />
+				</Suspense>
+			</div>
 		</ErrorBoundary>
 	);
 };
