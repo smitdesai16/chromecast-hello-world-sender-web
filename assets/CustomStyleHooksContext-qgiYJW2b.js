@@ -1,1 +1,0 @@
-import{r as o}from"./secondPulse-xnjOLtVL.js";function u(){return typeof window<"u"&&!!(window.document&&window.document.createElement)}const a=u()?o.useLayoutEffect:o.useEffect,n=o.createContext(void 0),c=()=>{},d=n.Provider,i=s=>{var t,e;return(e=(t=o.useContext(n))===null||t===void 0?void 0:t[s])!==null&&e!==void 0?e:c};export{d as C,n as a,i as b,u as c,a as u};
