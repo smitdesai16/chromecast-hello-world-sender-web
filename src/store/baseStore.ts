@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import ApplicationDetailReducer from "./applicationDetailReducer";
+import healthCheckReducer from "./healthCheckReducer";
 
 export const BaseStore = configureStore({
 	reducer: {
 		applicationDetail: ApplicationDetailReducer,
+		healthCheck: healthCheckReducer
 	},
 });
 

@@ -2,7 +2,9 @@ import { FluentProvider } from "@fluentui/react-components";
 import React, { useEffect } from "react";
 import { useTheme } from "./hooks/useTheme";
 import { updateApplicationNameAction, updateApplicationIdAction, updateApplicationStatusAction, updateCastStateAction, updateReceiverVolumeIsMuted, updateReceiverVolumeLevel, updateSessionIdAction, updateSessionStateAction } from "./store/applicationDetailReducer";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { updateLastReceivedAction } from "./store/healthCheckReducer";
+import { RootState } from "./store/baseStore";
 
 interface IProps {
 	children: React.ReactNode;
@@ -15,6 +17,7 @@ interface IProps {
 export default function AppWrapper({ children }: IProps): JSX.Element {
 	const dispatch = useDispatch();
 	const theme = useTheme();
+	const sessionId = useSelector((state: RootState) => state.applicationDetail.sessionId);
 
 	useEffect(() => {
 		document.body.style.backgroundColor = theme.colorNeutralBackground1;
@@ -35,6 +38,10 @@ export default function AppWrapper({ children }: IProps): JSX.Element {
 
 				dispatch(updateReceiverVolumeLevel(currentSession.getVolume()));
 				dispatch(updateReceiverVolumeIsMuted(currentSession.isMute()));
+
+				currentSession.sendMessage('urn:x-cast:io.smitdesai16.github.health-check', {
+					message: (Math.random() + 1).toString(36).substring(7)
+				});
 			} else {
 				dispatch(updateApplicationStatusAction(""));
 				dispatch(updateSessionIdAction(""));
@@ -46,6 +53,16 @@ export default function AppWrapper({ children }: IProps): JSX.Element {
 			}
 		}, 100);
 	})
+
+	useEffect(() => {
+		if (sessionId) {
+			const castContext = window["cast"].framework.CastContext.getInstance();
+			const currentSession = castContext.getCurrentSession();
+			currentSession.addMessageListener("urn:x-cast:io.smitdesai16.github.health-check", function () {
+				dispatch(updateLastReceivedAction(new Date().toISOString()));
+			});
+		}
+	});
 
 	return (
 		<FluentProvider theme={theme}>

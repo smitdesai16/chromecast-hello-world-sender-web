@@ -16,7 +16,7 @@ const ApplicationDetail = () => {
     const receiverVolumeIsMuted = useSelector((state: RootState) => state.applicationDetail.receiverVolumeIsMuted);
 
     return (
-        <div style={{ width: "50%", background: theme.colorPaletteRedBackground1 }}>
+        <div style={{ width: "50%", background: theme.colorPaletteRedBackground1, padding: "12px" }}>
             <div style={{ textAlign: "center" }}>
                 <Title1>Application Details</Title1>
             </div>

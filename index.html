@@ -14,17 +14,6 @@
                         autoJoinPolicy: window["chrome"].cast.AutoJoinPolicy.PAGE_SCOPED,
                         resumeSavedSession: true
                     });
-
-                    const castContext = window["cast"].framework.CastContext.getInstance();
-
-                    castContext.addEventListener(window["cast"].framework.CastContextEventType.SESSION_STATE_CHANGED, function (event) {
-                        console.log("SESSION_STATE_CHANGED: " + event.sessionState);
-                        console.log(event);
-                    });
-                    castContext.addEventListener(window["cast"].framework.CastContextEventType.CAST_STATE_CHANGED, function (event) {
-                        console.log("CAST_STATE_CHANGED:" + event.castState);
-                        console.log(event);
-                    });
                 }, 1000);
             }
         };
